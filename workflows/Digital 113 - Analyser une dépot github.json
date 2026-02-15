@@ -1,0 +1,612 @@
+{
+  "name": "Digital 113 - Analyser une dépot github",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Url du dépot",
+        "formDescription": "Indiquez l'url du dépot à analyser",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Url du dépot",
+              "fieldName": "url",
+              "requiredField": true
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        16
+      ],
+      "id": "23d27cde-24cb-4901-9e6e-39d051b13027",
+      "name": "Get url",
+      "webhookId": "7cf00e86-150c-4b50-a5ed-a495e9992047"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "095de0de-3348-48da-ae7e-02f59e592ed0",
+              "name": "owner",
+              "value": "={{ $json.url.split('/')[3] }}",
+              "type": "string"
+            },
+            {
+              "id": "59d86c8c-b9a8-4357-a29c-fc9c074d7370",
+              "name": "repo",
+              "value": "={{ $json.url.split('/')[4] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        448,
+        -80
+      ],
+      "id": "72602ee6-3d17-4267-953f-51fb2cb4ebba",
+      "name": "Get repo elements"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "2ea47b28-796b-4a57-aae2-c758522409b2",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "https://github.com/",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            },
+            {
+              "id": "edf3f349-47ac-4b48-8fa6-e4774ba7ccea",
+              "leftValue": "={{ $json.url.match(/^https?:\\/\\/github\\.com\\/[^/]+\\/[^/]+/) !== null }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        224,
+        16
+      ],
+      "id": "d86f1a71-fd4a-4109-96c8-9894928b5233",
+      "name": "Valid url"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "repository",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "={{ $json.owner }}",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{ $json.repo }}",
+          "mode": "name"
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        672,
+        -80
+      ],
+      "id": "6914b618-2e54-4faf-aeb6-fd1f1f9386d8",
+      "name": "Get a repository",
+      "webhookId": "ef3ac88a-d583-4603-ae79-1fd0f5f510dc",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "6",
+          "name": "Github JDR"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}/readme",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        896,
+        16
+      ],
+      "id": "172b49a2-fe52-46df-b766-5430e12608ae",
+      "name": "Get Readme",
+      "executeOnce": false,
+      "credentials": {
+        "githubApi": {
+          "id": "11",
+          "name": "Github account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1344,
+        -80
+      ],
+      "id": "caba723b-3f48-4b99-8724-fb237bc4119a",
+      "name": "Data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "295ab193-b3a6-4ef9-a06b-a33acf7937c4",
+              "name": "readme",
+              "value": "notfound",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        112
+      ],
+      "id": "b4485ff9-5a78-420c-bdf3-96cac0e633d7",
+      "name": "Readme not found"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "08751108-806a-40a1-8ce0-ebf267866b73",
+              "name": "readme",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        -80
+      ],
+      "id": "f882ea86-266c-4cc2-8c5e-822fbd004f3c",
+      "name": "Readme found"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4bf4520a-5036-467b-bc53-d86a8cc07033",
+              "name": "repo",
+              "value": "={{ $json }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        -272
+      ],
+      "id": "eb266014-df3b-4411-ba3f-ad8f10edbbf2",
+      "name": "Repo data"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Tu es un assistant spécialisé dans l'analyse de dépôts GitHub. À partir des données structurées fournies ci-dessous, extrais les informations demandées.\n\n## Données du dépôt\n{{ JSON.stringify($json.repo) }}\n\n## Contenu du README\n{{ JSON.stringify($json.readme) }}\n\n## Consignes\n- Analyse les données du dépôt ET le README pour produire ta réponse.\n- Pour la finalité, rédige une description concise (2-3 phrases max) expliquant à quoi sert le projet et à qui il s'adresse.\n- Pour la catégorie, classifie le projet parmi : \"library\", \"framework\", \"CLI tool\", \"API\", \"SaaS\", \"DevOps\", \"plugin\", \"mobile app\", \"desktop app\", \"documentation\", \"other\".\n- Pour le tech_stack, identifie les technologies, langages et outils mentionnés dans le README (pas uniquement le langage principal).\n- Pour readme_quality, évalue la documentation sur 5 en te basant sur ces critères :\n  - 1 : quasi vide ou inutilisable\n  - 2 : minimal (juste une description)\n  - 3 : correct (installation + usage basique)\n  - 4 : bon (exemples, configuration, contribution)\n  - 5 : excellent (screenshots/démo, CI badges, API docs, changelog)\n- Si une information est absente ou indéterminable, utilise `null`.\n- Réponds UNIQUEMENT avec le JSON ci-dessous, sans texte avant ni après, sans backticks.\n\n## Format de sortie attendu\n{\n  \"owner\": \"Présentation du propriétaire du dépôt (organisation ou utilisateur)\",\n  \"name\": \"nom complet du dépôt\",\n  \"stars\": 0,\n  \"description\": \"finalité du dépôt en 2-3 phrases\",\n  \"category\": \"une valeur parmi la liste proposée\",\n  \"tech_stack\": [\"langage1\", \"framework1\", \"outil1\"],\n  \"readme_quality\": {\n    \"score\": 3,\n    \"justification\": \"explication courte du score en une phrase\"\n  }\n}"
+            }
+          ]
+        },
+        "simplify": false,
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_object"
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        1568,
+        -80
+      ],
+      "id": "0528301a-a19d-430e-8deb-c840ae0693b0",
+      "name": "Search for data in non structured input",
+      "credentials": {
+        "openAiApi": {
+          "id": "gB1HlqyyVy7dfwgd",
+          "name": "OpenAi Project OSRL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ JSON.stringify($json.output[1]) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1920,
+        -80
+      ],
+      "id": "4780e963-d7e1-4ade-8be1-3284bde1aa08",
+      "name": "Keep only results"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Problème",
+        "completionMessage": "L'url n'est pas un dépot github.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        432,
+        112
+      ],
+      "id": "e1437e3a-e68d-4749-9744-01c2dec6d929",
+      "name": "End error",
+      "webhookId": "97ba867a-ad79-45a7-a283-f7967ba77f74"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Détails déterminés",
+        "completionMessage": "=Le workflow a déterminé les informations suivantes.<br>\n<br>\nLe dépot est {{ $json.content[0].text.name }}.<br>\n<br>\nCréé par {{ $json.content[0].text.owner }}.<br>\n<br>\nSa popularité est de {{ $json.content[0].text.stars }} étoiles.<br>\n<br>\nSa finalité est :<br>\n{{ $json.content[0].text.description }}<br>\n<br>\nCatégorisé comme : {{ $json.content[0].text.category }}<br>\n<br>\nIl s'appuie sur : {{ $json.content[0].text.tech_stack.join(\", \") }}<br>\n<br>\nSon Readme est de qualité {{ $json.content[0].text.readme_quality.score }}/5<br>\n{{ $json.content[0].text.readme_quality.justification }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        2144,
+        -80
+      ],
+      "id": "cb91664c-ec4b-4a50-9d86-4241774b4738",
+      "name": "End data",
+      "webhookId": "9fc1ee05-d905-45ab-ae45-4d71bc37cec5"
+    }
+  ],
+  "pinData": {
+    "Get url": [
+      {
+        "json": {
+          "url": "https://github.com/anthropics/claude-code",
+          "submittedAt": "2026-02-15T22:55:07.776+01:00",
+          "formMode": "test"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Search for data in non structured input": [
+      {
+        "json": {
+          "id": "resp_0a83dade0f48e3d400699244300910819e9e2c031311f8d757",
+          "object": "response",
+          "created_at": 1771193392,
+          "status": "completed",
+          "background": false,
+          "billing": {
+            "payer": "developer"
+          },
+          "completed_at": 1771193399,
+          "frequency_penalty": 0,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "max_tool_calls": null,
+          "model": "gpt-5-mini-2025-08-07",
+          "output": [
+            {
+              "id": "rs_0a83dade0f48e3d40069924430cb4c819ea9a8714b1cc4ca94",
+              "type": "reasoning",
+              "summary": []
+            },
+            {
+              "id": "msg_0a83dade0f48e3d40069924435c990819e8f51f06bbfe92ea7",
+              "type": "message",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "annotations": [],
+                  "logprobs": [],
+                  "text": {
+                    "owner": "anthropics (Organization, développeur d'outils IA)",
+                    "name": "anthropics/claude-code",
+                    "stars": 67007,
+                    "description": "Outil agentif en ligne de commande qui s'exécute dans le terminal, comprend votre codebase et aide à automatiser tâches de développement, explications de code et workflows Git via commandes en langage naturel. Destiné aux développeurs et équipes souhaitant accélérer le développement et automatiser routines de codage localement.",
+                    "category": "CLI tool",
+                    "tech_stack": [
+                      "Shell",
+                      "Bash",
+                      "Node.js",
+                      "npm",
+                      "Homebrew",
+                      "PowerShell",
+                      "winget",
+                      "curl",
+                      "Git/GitHub",
+                      "Discord"
+                    ],
+                    "readme_quality": {
+                      "score": 4,
+                      "justification": "README propose une installation multiplateforme, badge/démonstration, liens vers la documentation, plugins et politiques (données/privacité), mais manque d'exemples d'utilisation approfondis et d'éléments CI/changelog détaillés."
+                    }
+                  }
+                }
+              ],
+              "role": "assistant"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "presence_penalty": 0,
+          "previous_response_id": null,
+          "prompt_cache_key": null,
+          "prompt_cache_retention": null,
+          "reasoning": {
+            "effort": "medium",
+            "summary": null
+          },
+          "safety_identifier": null,
+          "service_tier": "default",
+          "store": true,
+          "temperature": 1,
+          "text": {
+            "format": {
+              "type": "json_object"
+            },
+            "verbosity": "medium"
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_logprobs": 0,
+          "top_p": 1,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 5178,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 1046,
+            "output_tokens_details": {
+              "reasoning_tokens": 768
+            },
+            "total_tokens": 6224
+          },
+          "user": null,
+          "metadata": {}
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Get url": {
+      "main": [
+        [
+          {
+            "node": "Valid url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valid url": {
+      "main": [
+        [
+          {
+            "node": "Get repo elements",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "End error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get repo elements": {
+      "main": [
+        [
+          {
+            "node": "Get a repository",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a repository": {
+      "main": [
+        [
+          {
+            "node": "Get Readme",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Repo data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Readme": {
+      "main": [
+        [
+          {
+            "node": "Readme found",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Readme not found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Readme not found": {
+      "main": [
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Readme found": {
+      "main": [
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Data": {
+      "main": [
+        [
+          {
+            "node": "Search for data in non structured input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Repo data": {
+      "main": [
+        [
+          {
+            "node": "Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search for data in non structured input": {
+      "main": [
+        [
+          {
+            "node": "Keep only results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Keep only results": {
+      "main": [
+        [
+          {
+            "node": "End data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7d93e31b-556a-4f14-af5b-64cf4e13dbe9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "854c212d3baca2d6108faeb1187a4f6d9a3e60117068e7e872ad5e663327af93"
+  },
+  "id": "vsjPCAJrlYJfJzol",
+  "tags": [
+    {
+      "name": "d113",
+      "id": "HePEx3VCGxc7gOOp",
+      "updatedAt": "2026-02-15T22:19:31.165Z",
+      "createdAt": "2026-02-15T22:19:31.165Z"
+    }
+  ]
+}
