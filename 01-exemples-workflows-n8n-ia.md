@@ -21,13 +21,31 @@ Contourne la limite de 25 MB d'OpenAI Whisper en utilisant [FileFlows](https://f
 
 **Cas d'usage :** réunions longues, conférences, podcasts, archivage audio
 
-### Génération de contenu
+### Analyse automatique d'un dépôt GitHub avec GPT5-mini
 
-<!-- TODO: décrire un workflow de génération de contenu -->
+**Article de référence :** [J'ai joué avec ChatGPT : construire une liste projets open source avec n8n, ChatGPT et Google Sheets](https://juliendelrio.fr/2025/02/20/jai-joue-avec-chatgpt-4-construire-une-liste-projets-open-source-avec-n8n-chatgpt-et-google-sheets/)
 
-### Analyse et classification
+**Workflow :** [`Digital 113 - Analyser une dépot github.json`](workflows/Digital%20113%20-%20Analyser%20une%20dépot%20github.json)
 
-<!-- TODO: décrire un workflow d'analyse/classification -->
+Inspiré d'un projet ayant permis de qualifier **4 094 dépôts open source** automatiquement, ce workflow simplifié analyse un dépôt GitHub donné via un formulaire et en extrait des informations structurées grâce à GPT5-mini.
+
+**Étapes du workflow :**
+
+1. Saisie de l'URL du dépôt via un formulaire n8n
+2. Validation de l'URL (format GitHub)
+3. Récupération des métadonnées du dépôt via l'API GitHub
+4. Récupération du README
+5. Envoi des données à GPT5-mini pour analyse (format JSON structuré)
+6. Affichage du résultat : propriétaire, description, catégorie, stack technique, qualité du README
+
+**Informations extraites par le LLM :**
+
+- Description de la finalité du projet (2-3 phrases)
+- Catégorie (library, framework, CLI tool, API, SaaS, DevOps, etc.)
+- Stack technique identifiée depuis le README
+- Score de qualité du README (1 à 5)
+
+**Cas d'usage :** veille technologique, curation de projets open source, audit de dépôts
 
 ## Démonstration
 
