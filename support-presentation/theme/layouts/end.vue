@@ -1,11 +1,5 @@
 <template>
   <div class="slidev-layout layout-end flex flex-col items-center justify-center text-center px-16 py-12">
-    <img
-      src="https://juliendelrio.fr/wp-content/uploads/2025/10/logo_jdr_2025_transp_sans_marge-300x300.png"
-      alt="JDR Logo"
-      class="w-20 h-20 rounded-full shadow-xl mb-8"
-    />
-
     <slot />
 
     <div class="flex gap-6 mt-8">
