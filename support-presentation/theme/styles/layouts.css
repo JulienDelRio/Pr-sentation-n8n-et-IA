@@ -1,0 +1,72 @@
+/* Full-height fix for colored layouts */
+.slidev-layout.layout-cover,
+.slidev-layout.layout-section,
+.slidev-layout.layout-end {
+  min-height: 100%;
+  height: 100%;
+}
+
+/* Cover layout */
+.slidev-layout.layout-cover {
+  background: linear-gradient(135deg, #0f1d38 0%, #25498e 60%, #358dd6 100%);
+  color: white;
+}
+
+.slidev-layout.layout-cover h1 {
+  color: white;
+  font-size: 2.6em;
+  line-height: 1.15;
+}
+
+.slidev-layout.layout-cover h2 {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.4em;
+}
+
+.slidev-layout.layout-cover p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.slidev-layout.layout-cover strong {
+  color: white;
+}
+
+.slidev-layout.layout-end strong {
+  color: white;
+}
+
+/* Section layout */
+.slidev-layout.layout-section {
+  background: linear-gradient(135deg, #25498e 0%, #358dd6 100%);
+  color: white;
+}
+
+.slidev-layout.layout-section h1 {
+  color: white;
+  font-size: 2.8em;
+}
+
+.slidev-layout.layout-section h2 {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* End layout */
+.slidev-layout.layout-end {
+  background: linear-gradient(135deg, #0f1d38 0%, #25498e 100%);
+  color: white;
+}
+
+.slidev-layout.layout-end h1 {
+  color: white;
+}
+
+.slidev-layout.layout-end a {
+  color: #6bb3e8;
+}
+
+/* Mermaid diagrams */
+.slidev-layout .mermaid {
+  background: var(--jdr-bg-alt);
+  border-radius: 8px;
+  padding: 1em;
+}

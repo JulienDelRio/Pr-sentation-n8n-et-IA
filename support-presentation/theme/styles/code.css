@@ -1,0 +1,23 @@
+/* Code blocks styling */
+.slidev-layout pre {
+  background: #1e293b !important;
+  border-radius: 8px;
+  padding: 1.2em !important;
+  box-shadow: 0 4px 12px var(--jdr-shadow);
+  border: 1px solid rgba(53, 141, 214, 0.15);
+}
+
+.slidev-layout code:not(pre code) {
+  background: var(--jdr-bg-alt);
+  color: var(--jdr-primary-dark);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid var(--jdr-border);
+}
+
+/* Shiki code highlighting adjustments */
+.slidev-layout .shiki {
+  border-radius: 8px;
+}

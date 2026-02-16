@@ -1,5 +1,5 @@
 ---
-theme: default
+theme: ./theme
 title: "n8n à l'heure de l'IA"
 info: |
   Factory Tech Digital 113 - 18 février 2026
@@ -12,19 +12,22 @@ fonts:
   sans: Inter
   mono: Fira Code
 lineNumbers: true
-colorSchema: auto
+colorSchema: light
+transition: slide-left
+mdc: true
+layout: cover
 ---
 
 # n8n à l'heure de l'IA
 
 ## Les workflows intelligents
 
-<div class="pt-12">
-  <p class="text-xl opacity-80">Factory Tech — Digital 113</p>
+<div class="pt-8">
+  <p class="text-lg opacity-80">Factory Tech — Digital 113</p>
   <p class="opacity-60">18 février 2026 • 12h15 - 13h45 • En ligne</p>
 </div>
 
-<div class="abs-br m-6 flex gap-4 text-sm opacity-50">
+<div class="pt-6 flex gap-8 text-sm opacity-70">
   <div><strong>Julien Del Rio</strong> — Consultant IA @ Numih France</div>
   <div><strong>Michael Viala</strong> — Directeur de projet @ Granit</div>
 </div>
@@ -336,24 +339,17 @@ layout: center
 </div>
 
 ---
-layout: center
-class: text-center
+layout: end
 ---
 
 # Merci !
 
 ## Échanges et retours d'expérience
 
-<div class="pt-8 text-lg">
+<div class="pt-4 text-lg">
 
 **Julien Del Rio** — Consultant IA @ Numih France
 
 **Michael Viala** — Directeur de projet @ Granit
-
-</div>
-
-<div class="pt-4 opacity-50 text-sm">
-
-Factory Tech — Digital 113 — 18 février 2026
 
 </div>

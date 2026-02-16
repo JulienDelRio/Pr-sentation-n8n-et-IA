@@ -1,0 +1,16 @@
+{
+  "name": "slidev-theme-jdr",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "slidev": ">=0.51.0"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "defaults": {
+      "transition": "slide-left",
+      "aspectRatio": "16/9"
+    }
+  }
+}
