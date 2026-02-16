@@ -27,9 +27,8 @@ layout: cover
   <p class="opacity-60">18 février 2026 • 12h15 - 13h45 • En ligne</p>
 </div>
 
-<div class="pt-6 flex gap-8 text-sm opacity-70">
+<div class="pt-6 text-sm opacity-70">
   <div><strong>Julien Del Rio</strong> — Consultant IA @ Numih France</div>
-  <div><strong>Michael Viala</strong> — Directeur de projet @ Granit</div>
 </div>
 
 ---
@@ -349,7 +348,5 @@ layout: end
 <div class="pt-4 text-lg">
 
 **Julien Del Rio** — Consultant IA @ Numih France
-
-**Michael Viala** — Directeur de projet @ Granit
 
 </div>
