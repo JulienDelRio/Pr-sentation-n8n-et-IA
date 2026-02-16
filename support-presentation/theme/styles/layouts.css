@@ -1,7 +1,5 @@
-/* Full-height fix for colored layouts */
-.slidev-layout.layout-cover,
-.slidev-layout.layout-section,
-.slidev-layout.layout-end {
+/* Full-height fix for all layouts */
+.slidev-layout {
   min-height: 100%;
   height: 100%;
 }
