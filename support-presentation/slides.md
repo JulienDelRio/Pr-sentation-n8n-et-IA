@@ -200,12 +200,6 @@ Tester **4 approches** pour générer un workflow n8n avec Claude.
 
 Comparer les résultats selon le **niveau de contexte** fourni au LLM.
 
-<div class="pt-4">
-
-> L'IA ne remplace pas le développeur, mais **le contexte qu'on lui donne change tout**.
-
-</div>
-
 ---
 layout: two-cols
 ---
