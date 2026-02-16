@@ -20,7 +20,7 @@ layout: cover
 
 # n8n à l'heure de l'IA
 
-## Les workflows intelligents
+## Vos workflows avec et par l'IA
 
 <div class="pt-8">
   <p class="text-lg opacity-80">Factory Tech — Digital 113</p>
