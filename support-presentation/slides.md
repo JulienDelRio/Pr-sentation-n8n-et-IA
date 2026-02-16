@@ -201,10 +201,13 @@ Tester **4 approches** pour générer un workflow n8n avec Claude.
 Comparer les résultats selon le **niveau de contexte** fourni au LLM.
 
 ---
-layout: two-cols
----
 
 # Test 1 : claude.ai (prompt naïf)
+
+<div class="grid grid-cols-[1fr_1fr] gap-8">
+<div>
+
+### Configuration
 
 - **Outil :** interface web claude.ai
 - **Contexte fourni :** aucun
@@ -216,9 +219,36 @@ layout: two-cols
 - Potentiellement obsolète
 - Structure approximative
 
-::right::
+</div>
+<div>
+
+### Observations
+
+<!--
+NOTES DE DEMO :
+- Copier le prompt dans claude.ai
+- Observer la structure du JSON généré
+- Tenter l'import dans n8n
+- Noter les erreurs / incompatibilités
+-->
+
+<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
+
+À compléter pendant la démo
+
+</div>
+
+</div>
+</div>
+
+---
 
 # Test 2 : Claude Desktop + Context7
+
+<div class="grid grid-cols-[1fr_1fr] gap-8">
+<div>
+
+### Configuration
 
 - **Outil :** Claude Desktop avec MCP Context7
 - **Contexte fourni :** documentation n8n à jour
@@ -230,35 +260,122 @@ layout: two-cols
 - Meilleure structure
 - Nœuds récents
 
----
-layout: two-cols
+</div>
+<div>
+
+### Observations
+
+<!--
+NOTES DE DEMO :
+- Même prompt dans Claude Desktop
+- Context7 fournit la doc n8n à jour
+- Comparer le JSON avec le test 1
+- Vérifier les noms de nœuds et versions
+-->
+
+<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
+
+À compléter pendant la démo
+
+</div>
+
+</div>
+</div>
+
 ---
 
 # Test 3 : Claude Code + specs
+
+<div class="grid grid-cols-[1fr_1fr] gap-8">
+<div>
+
+### Configuration
 
 - **Outil :** Claude Code
 - **Contexte :** version n8n + specs techniques
 - **Prompt :** besoin + contraintes précises
 
+### Ce qu'on fournit au LLM
+
+- Version exacte de n8n
+- Format JSON attendu (structure n8n)
+- Liste des nœuds disponibles et leurs versions
+- Spécifications techniques du workflow cible
+
+</div>
+<div>
+
 ### Résultat attendu
 
 - Fidèle aux spécifications
-- Workflow importable
-- JSON valide
+- Workflow importable directement
+- JSON valide et conforme au format n8n
 
-::right::
+### Observations
 
-# Test 4 : Workflow existant
+<!--
+NOTES DE DEMO :
+- Montrer le CLAUDE.md ou les specs fournies
+- Lancer Claude Code avec le contexte technique
+- Importer le JSON généré dans n8n
+- Vérifier que les nœuds et connexions sont corrects
+-->
+
+<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
+
+À compléter pendant la démo
+
+</div>
+
+</div>
+</div>
+
+---
+
+# Test 4 : Workflow existant comme référence
+
+<div class="grid grid-cols-[1fr_1fr] gap-8">
+<div>
+
+### Configuration
 
 - **Outil :** Claude Code
-- **Contexte :** workflow de référence
+- **Contexte :** workflow de référence existant
 - **Prompt :** modifier / s'inspirer du workflow source
+
+### Ce qu'on fournit au LLM
+
+- Le JSON d'un workflow n8n fonctionnel
+- Instructions de modification ou d'adaptation
+- Le LLM apprend les conventions depuis l'exemple
+
+</div>
+<div>
 
 ### Résultat attendu
 
-- Cohérent avec les conventions
+- Cohérent avec les conventions du projet
 - Réutilise les patterns existants
-- Qualité maximale
+- Qualité maximale — le meilleur "prompt" est un exemple
+
+### Observations
+
+<!--
+NOTES DE DEMO :
+- Fournir le workflow GitHub comme référence
+- Demander un workflow similaire pour un autre cas
+- Comparer la structure avec le workflow source
+- Le résultat devrait être le plus fidèle des 4 tests
+-->
+
+<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
+
+À compléter pendant la démo
+
+</div>
+
+</div>
+</div>
 
 ---
 
