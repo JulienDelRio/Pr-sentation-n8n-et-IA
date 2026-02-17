@@ -41,7 +41,8 @@ layout: center
 <div>
 
 ### Cas d'usage 1
-Exemples de workflows n8n utilisant l'IA
+
+*Exemples de workflows n8n utilisant l'IA*
 
 - Transcription audio avec Whisper
 - Analyse de dépôts GitHub avec GPT5-mini
@@ -50,7 +51,8 @@ Exemples de workflows n8n utilisant l'IA
 <div>
 
 ### Cas d'usage 2
-Développement d'un workflow avec Claude
+
+*Développement d'un workflow avec Claude*
 
 - 4 approches comparées
 - Du prompt naïf au workflow opérationnel
