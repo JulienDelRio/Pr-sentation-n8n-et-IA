@@ -182,6 +182,14 @@ NOTES DE DEMO :
 -->
 
 ---
+
+# Points à retenir — Cas d'usage 1
+
+- Les LLMs s'intègrent **nativement** dans n8n (nœuds OpenAI, Langchain)
+- Orchestration de **chaînes de traitement intelligentes** (segmentation, analyse, consolidation)
+- Les **réponses JSON structurées** permettent une exploitation automatique des résultats
+
+---
 layout: section
 ---
 
@@ -405,31 +413,12 @@ Plus le LLM dispose d'informations précises, plus le workflow généré est exp
 </div>
 
 ---
-layout: center
----
 
-# Points clés à retenir
+# Points à retenir — Cas d'usage 2
 
-<div class="grid grid-cols-2 gap-8 pt-6">
-<div>
-
-### n8n + IA
-
-- Les LLMs s'intègrent nativement dans n8n
-- Orchestration de chaînes de traitement intelligentes
-- Réponses structurées pour exploitation automatique
-
-</div>
-<div>
-
-### Développer avec l'IA
-
-- Le contexte fourni détermine la qualité
-- Les outils MCP enrichissent les capacités de l'IA
-- Un workflow existant est le meilleur "prompt"
-
-</div>
-</div>
+- Le **contexte** fourni au LLM est le facteur déterminant de la qualité du résultat
+- Les outils **MCP** (comme Context7) enrichissent les capacités de l'IA avec des données à jour
+- Un **workflow existant** est le meilleur "prompt" — l'exemple bat la spécification
 
 ---
 layout: end
