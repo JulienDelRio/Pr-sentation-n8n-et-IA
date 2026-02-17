@@ -49,17 +49,17 @@ Utiliser Claude Code en précisant la version de n8n et des détails techniques 
 
 > Crée un workflow n8n au format JSON importable. Voici les spécifications :
 >
-> **Version n8n :** 1.76.1
+> **Version n8n :** 2.7.4
 >
-> **Nœuds à utiliser (avec versions exactes) :**
-> - `n8n-nodes-base.formTrigger` v2.5 — formulaire avec un champ "URL de l'article" (requis), responseMode: lastNode
-> - `n8n-nodes-base.httpRequest` v4.2 — GET sur l'URL saisie pour récupérer le HTML
-> - `@n8n/n8n-nodes-langchain.openAi` v2.1 — analyse du contenu avec GPT5-mini, réponse en JSON structuré contenant : summary (string), keywords (array), tone (string)
-> - `n8n-nodes-base.form` v2.5 — page de complétion affichant le résultat
+> **Nœuds à utiliser (avec types et versions exactes) :**
+> - `n8n-nodes-base.formTrigger` (typeVersion: 2.5) — formulaire avec un champ "URL de l'article" (requis), responseMode: lastNode
+> - `n8n-nodes-base.httpRequest` (typeVersion: 4.4) — GET sur l'URL saisie pour récupérer le HTML
+> - `@n8n/n8n-nodes-langchain.openAi` (typeVersion: 2.1) — analyse du contenu avec le modèle `gpt-4o-mini`, réponse en JSON structuré (response_format: json_object) contenant : summary (string), keywords (array), tone (string)
+> - `n8n-nodes-base.form` (typeVersion: 2.5) — page de complétion affichant le résultat
 >
 > **Connexions :** formTrigger → httpRequest → openAi → form
 >
-> Le JSON doit contenir les propriétés `name`, `nodes`, `connections`, `pinData` et `settings` à la racine.
+> **Structure JSON attendue :** le workflow exporté doit contenir les propriétés `name`, `nodes`, `connections`, `pinData` et `settings` à la racine. Chaque nœud doit avoir `parameters`, `type`, `typeVersion`, `position`, `id` et `name`.
 
 <!-- TODO: noter le résultat -->
 
