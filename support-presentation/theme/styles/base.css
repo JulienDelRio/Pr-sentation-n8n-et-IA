@@ -24,7 +24,11 @@
 .slidev-layout h1 {
   color: var(--jdr-primary-dark);
   font-weight: 700;
+  font-size: 1.8em;
   letter-spacing: -0.02em;
+  padding-bottom: 0.3em;
+  border-bottom: 3px solid var(--jdr-primary);
+  margin-bottom: 0.6em;
 }
 
 .slidev-layout h2 {
