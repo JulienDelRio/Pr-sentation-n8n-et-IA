@@ -185,9 +185,10 @@ NOTES DE DEMO :
 
 # Points à retenir — Cas d'usage 1
 
-- Les LLMs s'intègrent **nativement** dans n8n (nœuds OpenAI, Langchain)
-- Orchestration de **chaînes de traitement intelligentes** (segmentation, analyse, consolidation)
-- Les **réponses JSON structurées** permettent une exploitation automatique des résultats
+- Les LLMs s'intègrent **nativement** dans n8n (nœud générique AI Agent ou nœuds dédiés comme OpenAI)
+- Les **réponses JSON structurées** permettent une exploitation fluide des résultats
+- Une simple **clé d'API** suffit pour commencer à expérimenter
+- Possibilité de **combiner plusieurs services IA** dans un même workflow
 
 ---
 layout: section
