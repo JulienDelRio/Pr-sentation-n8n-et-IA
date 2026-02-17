@@ -65,13 +65,15 @@ Utiliser Claude Code en précisant la version de n8n et des détails techniques 
 
 ### Test 4 : Partir d'un workflow existant
 
-Fournir un workflow n8n existant comme base et demander à Claude de le modifier ou de s'en inspirer pour en créer un nouveau.
+Fournir un workflow n8n existant comme base et demander à Claude Code (avec Context7) de le modifier ou de s'en inspirer pour en créer un nouveau, en suivant les bonnes pratiques de documentation n8n.
 
-- **Contexte fourni :** workflow de référence + instructions de modification
-- **Attendu :** résultat cohérent avec les conventions du workflow source
+- **Contexte fourni :** workflow de référence + documentation n8n via Context7 + consignes de documentation
+- **Attendu :** résultat cohérent avec les conventions du workflow source, documenté avec des sticky notes
 
 **Prompt :**
 
+> Utilise Context7 pour accéder à la documentation n8n à jour.
+>
 > Voici un workflow n8n existant qui analyse des dépôts GitHub : `Digital 113 - Analyser une dépot github.json`
 >
 > En t'inspirant de sa structure, de ses conventions et de son format, crée un workflow similaire mais qui analyse des **articles de blog** au lieu de dépôts GitHub.
@@ -83,6 +85,11 @@ Fournir un workflow n8n existant comme base et demander à Claude de le modifier
 > - La page de complétion affiche ces nouveaux champs
 >
 > Conserve le même style : mêmes versions de nœuds, même structure JSON, mêmes patterns (responseMode, merge, etc.).
+>
+> **Documentation du workflow :**
+> - Renomme chaque nœud pour décrire clairement sa fonction
+> - Ajoute une **sticky note principale** (couleur jaune, en haut à gauche) de 100 à 300 mots avec les sections `### How it works` et `### Setup steps`
+> - Ajoute des **sticky notes de section** (couleur blanche) pour regrouper les étapes logiques du workflow (ex: "Récupération de l'article", "Analyse IA", "Affichage du résultat"). Chaque sticky de section doit contenir un titre court et 1-2 lignes maximum.
 
 <!-- TODO: noter le résultat -->
 
