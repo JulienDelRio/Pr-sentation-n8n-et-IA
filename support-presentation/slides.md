@@ -273,14 +273,14 @@ Génère le JSON du workflow prêt à importer dans n8n.
 
 ---
 
-# Test 3 : Claude Code + specs
+# Test 3 : Claude Desktop + specs
 
 <div class="grid grid-cols-[1fr_1fr] gap-8">
 <div>
 
 ### Configuration
 
-- **Outil :** Claude Code
+- **Outil :** Claude Desktop
 - **Contexte :** version n8n + specs techniques
 - **Prompt :** besoin + contraintes précises
 
@@ -334,7 +334,7 @@ Crée un workflow n8n au format JSON importable. Voici les spécifications :
 
 ### Configuration
 
-- **Outil :** Claude Code + MCP Context7
+- **Outil :** Claude Desktop + MCP Context7
 - **Contexte :** workflow de référence + doc n8n à jour
 - **Prompt :** s'inspirer du workflow source + documenter
 
@@ -392,8 +392,8 @@ Conserve le même style : mêmes versions de nœuds, même structure JSON, même
 |------|-------|----------|-------------------|
 | 1 | claude.ai | Aucun | Faible |
 | 2 | Claude Desktop + Context7 | Documentation n8n | Moyenne |
-| 3 | Claude Code | Version + specs techniques | Bonne |
-| 4 | Claude Code + Context7 | Workflow existant + doc n8n | Très bonne |
+| 3 | Claude Desktop | Version + specs techniques | Bonne |
+| 4 | Claude Desktop + Context7 | Workflow existant + doc n8n | Très bonne |
 
 <div class="pt-6">
 
