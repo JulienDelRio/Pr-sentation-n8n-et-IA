@@ -37,7 +37,7 @@ layout: center
 
 # Programme
 
-<div class="grid grid-cols-2 gap-8 pt-8">
+<div class="grid grid-cols-2 gap-8 pt-8 text-left">
 <div>
 
 ### Cas d'usage 1
