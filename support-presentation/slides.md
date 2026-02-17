@@ -406,30 +406,6 @@ Plus le LLM dispose d'informations précises, plus le workflow généré est exp
 
 ---
 layout: center
-class: text-center
----
-
-# Démo 2
-
-## Génération d'un workflow avec Claude en direct
-
-<div class="pt-4 opacity-60">
-
-4 tests successifs — du prompt naïf au workflow opérationnel
-
-</div>
-
-<!--
-NOTES DE DEMO :
-- Test 1 : prompt simple sur claude.ai
-- Test 2 : même prompt dans Claude Desktop avec Context7
-- Test 3 : Claude Code avec version n8n et specs
-- Test 4 : Claude Code avec le workflow existant comme référence
-- Comparer les JSON générés et tenter l'import dans n8n
--->
-
----
-layout: center
 ---
 
 # Points clés à retenir
