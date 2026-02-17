@@ -59,32 +59,6 @@ Développement d'un workflow avec Claude
 </div>
 
 ---
-
-# Qu'est-ce que n8n ?
-
-<div class="grid grid-cols-2 gap-8">
-<div>
-
-- Plateforme d'automatisation **open source**
-- **400+ intégrations** natives (APIs, bases de données, services cloud)
-- Interface visuelle **no-code / low-code**
-- Self-hosted ou cloud
-- Workflows déclenchés par événements, cron, webhooks, formulaires
-
-</div>
-<div>
-
-### Pourquoi n8n + IA ?
-
-- Nœuds natifs pour OpenAI, Anthropic, etc.
-- Orchestration de chaînes LLM dans des pipelines
-- Traitement de données avant/après l'appel IA
-- Réponses structurées (JSON) exploitables
-
-</div>
-</div>
-
----
 layout: section
 ---
 
