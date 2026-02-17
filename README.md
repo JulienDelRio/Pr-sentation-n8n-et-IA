@@ -1,4 +1,4 @@
-# n8n à l'heure de l'IA - les workflows intelligents ?
+# n8n à l'heure de l'IA - Vos workflows avec et par l'IA
 
 Présentation donnée lors de la [Factory Tech de Digital 113](https://www.digital113.fr/event/n8n-a-lheure-de-lia-les-workflows-intelligents-62/register) le 18 février 2026.
 
@@ -12,16 +12,15 @@ Présentation donnée lors de la [Factory Tech de Digital 113](https://www.digit
 ## Programme
 
 1. Introduction
-2. Présentation d'un workflow IA/n8n/Notion pour alimenter un blog
+2. Exemples de workflows n8n utilisant l'IA (Whisper, GPT5-mini)
 3. Démonstration en direct : création d'un workflow avec Claude
 4. Échanges et retours d'expérience
 
-## Intervenants
+## Intervenant
 
 - **Julien Del Rio** - Consultant IA @ [Numih France](https://www.numih.com)
-- **Michael Viala** - Directeur de projet @ Granit
 
-## Présentation de Julien Del Rio
+## Présentation
 
 Comment n8n et les LLMs peuvent s'alimenter mutuellement, à travers deux cas d'usage :
 
