@@ -415,6 +415,24 @@ Plus le LLM dispose d'informations précises, plus le workflow généré est exp
 
 ---
 
+# Pour aller plus loin — Claude Code + n8n
+
+Via l'**API n8n** ou le **serveur MCP n8n**, il est possible d'exporter des workflows en local puis de les réimporter.
+
+Ce mécanisme ouvre la porte à :
+
+- Utiliser **Claude Code** pour générer et modifier des workflows en local
+- **Versionner** ses workflows dans un dépôt Git
+- Automatiser les mises à jour et le déploiement
+
+<div class="pt-4 text-sm opacity-60">
+
+Un peu overkill pour mes usages actuels — mais le potentiel est là.
+
+</div>
+
+---
+
 # Pour aller plus loin — AI Workflow Builder
 
 n8n intègre un **AI Workflow Builder** qui génère des workflows à partir d'une description en langage naturel.
