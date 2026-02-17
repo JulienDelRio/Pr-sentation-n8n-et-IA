@@ -38,15 +38,17 @@ Utiliser Claude Desktop avec le serveur MCP [Context7](https://github.com/upstas
 
 <!-- TODO: noter le résultat -->
 
-### Test 3 : Claude Desktop avec version et détails techniques
+### Test 3 : Claude Desktop + Context7 avec specs techniques
 
-Utiliser Claude Desktop en précisant la version de n8n et des détails techniques spécifiques (format JSON attendu, nœuds disponibles, etc.).
+Utiliser Claude Desktop avec Context7 en précisant la version de n8n et des détails techniques spécifiques (format JSON attendu, nœuds disponibles, etc.).
 
-- **Contexte fourni :** version n8n, spécifications techniques, contraintes précises
+- **Contexte fourni :** documentation n8n via Context7 + version n8n, spécifications techniques, contraintes précises
 - **Attendu :** résultat fidèle aux spécifications, workflow importable
 
 **Prompt :**
 
+> Utilise la documentation n8n via Context7.
+>
 > Crée un workflow n8n au format JSON importable. Voici les spécifications :
 >
 > **Version n8n :** 2.7.4
@@ -99,7 +101,7 @@ Fournir un workflow n8n existant comme base et demander à Claude Desktop (avec 
 |------|-------|----------|------------------|
 | 1 | claude.ai | Aucun | Faible |
 | 2 | Claude Desktop + Context7 | Documentation n8n | Moyenne |
-| 3 | Claude Desktop | Version + specs techniques | Bonne |
+| 3 | Claude Desktop + Context7 | Version + specs techniques | Bonne |
 | 4 | Claude Desktop + Context7 | Workflow existant + doc n8n | Très bonne |
 
 ## Démonstration
