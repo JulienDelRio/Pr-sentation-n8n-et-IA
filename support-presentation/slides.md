@@ -297,10 +297,10 @@ NOTES DE DEMO :
 
 ### Ce qu'on fournit au LLM
 
-- Version exacte de n8n
-- Format JSON attendu (structure n8n)
-- Liste des nœuds disponibles et leurs versions
-- Spécifications techniques du workflow cible
+- Version n8n : **2.7.4**
+- Types et versions exacts des nœuds (formTrigger 2.5, httpRequest 4.4, openAi 2.1, form 2.5)
+- Modèle LLM cible : **gpt-5-mini**
+- Structure JSON attendue du workflow
 
 </div>
 <div>
@@ -318,7 +318,7 @@ NOTES DE DEMO :
 - Montrer le CLAUDE.md ou les specs fournies
 - Lancer Claude Code avec le contexte technique
 - Importer le JSON généré dans n8n
-- Vérifier que les nœuds et connexions sont corrects
+- Vérifier que les nœuds, versions et connexions sont corrects
 -->
 
 <div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
@@ -332,22 +332,22 @@ NOTES DE DEMO :
 
 ---
 
-# Test 4 : Workflow existant comme référence
+# Test 4 : Workflow existant + Context7
 
 <div class="grid grid-cols-[1fr_1fr] gap-8">
 <div>
 
 ### Configuration
 
-- **Outil :** Claude Code
-- **Contexte :** workflow de référence existant
-- **Prompt :** modifier / s'inspirer du workflow source
+- **Outil :** Claude Code + MCP Context7
+- **Contexte :** workflow de référence + doc n8n à jour
+- **Prompt :** s'inspirer du workflow source + documenter
 
 ### Ce qu'on fournit au LLM
 
 - Le JSON d'un workflow n8n fonctionnel
-- Instructions de modification ou d'adaptation
-- Le LLM apprend les conventions depuis l'exemple
+- Accès à la documentation n8n via Context7
+- Consignes de documentation : nœuds renommés, sticky notes (principale jaune + sections blanches)
 
 </div>
 <div>
@@ -356,6 +356,7 @@ NOTES DE DEMO :
 
 - Cohérent avec les conventions du projet
 - Réutilise les patterns existants
+- Documenté avec des sticky notes
 - Qualité maximale — le meilleur "prompt" est un exemple
 
 ### Observations
@@ -363,7 +364,8 @@ NOTES DE DEMO :
 <!--
 NOTES DE DEMO :
 - Fournir le workflow GitHub comme référence
-- Demander un workflow similaire pour un autre cas
+- Context7 donne accès à la doc n8n à jour
+- Vérifier les sticky notes générées
 - Comparer la structure avec le workflow source
 - Le résultat devrait être le plus fidèle des 4 tests
 -->
@@ -386,7 +388,7 @@ NOTES DE DEMO :
 | 1 | claude.ai | Aucun | Faible |
 | 2 | Claude Desktop + Context7 | Documentation n8n | Moyenne |
 | 3 | Claude Code | Version + specs techniques | Bonne |
-| 4 | Claude Code | Workflow existant | Très bonne |
+| 4 | Claude Code + Context7 | Workflow existant + doc n8n | Très bonne |
 
 <div class="pt-6">
 
