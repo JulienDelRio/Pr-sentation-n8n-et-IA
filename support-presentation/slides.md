@@ -419,8 +419,6 @@ Plus le LLM dispose d'informations précises, plus le workflow généré est exp
 
 Via l'**API n8n** ou le **serveur MCP n8n**, il est possible d'exporter des workflows en local puis de les réimporter.
 
-Ce mécanisme ouvre la porte à :
-
 - Utiliser **Claude Code** pour générer et modifier des workflows en local
 - **Versionner** ses workflows dans un dépôt Git
 - Automatiser les mises à jour et le déploiement

@@ -65,6 +65,15 @@
 
 .slidev-layout ul, .slidev-layout ol {
   line-height: 1.8;
+  padding-left: 1.5em;
+}
+
+.slidev-layout ul {
+  list-style-type: disc;
+}
+
+.slidev-layout ol {
+  list-style-type: decimal;
 }
 
 .slidev-layout li::marker {
