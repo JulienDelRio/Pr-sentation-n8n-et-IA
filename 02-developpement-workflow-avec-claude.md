@@ -4,7 +4,7 @@
 
 Tester différentes approches pour générer un workflow n8n avec Claude, en comparant les résultats selon le niveau de contexte et d'outillage fourni.
 
-**Cas commun à tous les tests :** créer un workflow n8n qui analyse des articles de blog (formulaire → récupération HTML → analyse LLM → affichage résultat).
+**Cas commun à tous les tests :** créer un workflow n8n qui analyse des articles de blog (formulaire → récupération HTML → analyse GPT via OpenAI → affichage résultat).
 
 ## Tests
 
@@ -17,7 +17,7 @@ Demander directement à Claude via [claude.ai](https://claude.ai) de générer u
 
 **Prompt :**
 
-> Crée-moi un workflow n8n qui analyse des articles de blog. L'utilisateur saisit une URL dans un formulaire, le workflow récupère le contenu de l'article, l'envoie à un LLM pour en extraire un résumé, les mots-clés et le ton, puis affiche le résultat.
+> Crée-moi un workflow n8n qui analyse des articles de blog. L'utilisateur saisit une URL dans un formulaire, le workflow récupère le contenu de l'article, l'envoie à GPT via OpenAI pour en extraire un résumé, les mots-clés et le ton, puis affiche le résultat.
 
 <!-- TODO: noter le résultat -->
 
@@ -32,7 +32,7 @@ Utiliser Claude Desktop avec le serveur MCP [Context7](https://github.com/upstas
 
 > Utilise la documentation n8n via Context7 pour créer un workflow n8n qui analyse des articles de blog.
 >
-> L'utilisateur saisit une URL dans un formulaire, le workflow récupère le contenu de l'article, l'envoie à un LLM pour en extraire un résumé, les mots-clés et le ton, puis affiche le résultat.
+> L'utilisateur saisit une URL dans un formulaire, le workflow récupère le contenu de l'article, l'envoie à GPT via OpenAI pour en extraire un résumé, les mots-clés et le ton, puis affiche le résultat.
 >
 > Génère le JSON du workflow prêt à importer dans n8n.
 
@@ -79,7 +79,7 @@ Fournir un workflow n8n existant comme base et demander à Claude de le modifier
 > Différences :
 > - Le formulaire demande une URL d'article (pas une URL GitHub)
 > - Pas de validation GitHub, pas de nœud github — remplacer par un httpRequest qui récupère le HTML de l'article
-> - Le LLM extrait : résumé (2-3 phrases), mots-clés, ton de l'article (au lieu de catégorie/stack/qualité README)
+> - GPT extrait : résumé (2-3 phrases), mots-clés, ton de l'article (au lieu de catégorie/stack/qualité README)
 > - La page de complétion affiche ces nouveaux champs
 >
 > Conserve le même style : mêmes versions de nœuds, même structure JSON, mêmes patterns (responseMode, merge, etc.).
