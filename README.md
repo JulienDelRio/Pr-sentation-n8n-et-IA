@@ -11,18 +11,16 @@ Présentation donnée lors de la [Factory Tech de Digital 113](https://www.digit
 
 ## Programme
 
-1. Introduction
-2. Exemples de workflows n8n utilisant l'IA (Whisper, GPT5-mini)
-3. Démonstration en direct : création d'un workflow avec Claude
-4. Échanges et retours d'expérience
+### Cas d'usage 1 — Exemples de workflows n8n utilisant l'IA
+
+- Transcription audio avec OpenAI Whisper (template officiel n8n)
+- Analyse de dépôts GitHub avec GPT5-mini
+
+### Cas d'usage 2 — Développement d'un workflow avec Claude
+
+- 4 approches comparées (du prompt naïf au workflow opérationnel)
+- Comparaison selon le niveau de contexte fourni au LLM
 
 ## Intervenant
 
 - **Julien Del Rio** - Consultant IA @ [Numih France](https://www.numih.com)
-
-## Présentation
-
-Comment n8n et les LLMs peuvent s'alimenter mutuellement, à travers deux cas d'usage :
-
-- **Qualification automatique de données** avec GPT5-mini dans un workflow n8n
-- **Développement d'un workflow** avec Claude
