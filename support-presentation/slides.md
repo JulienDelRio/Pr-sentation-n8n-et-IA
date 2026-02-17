@@ -415,6 +415,23 @@ Plus le LLM dispose d'informations précises, plus le workflow généré est exp
 
 ---
 
+# Pour aller plus loin — AI Workflow Builder
+
+n8n intègre un **AI Workflow Builder** qui génère des workflows à partir d'une description en langage naturel.
+
+- Décrivez votre besoin en quelques phrases
+- n8n génère automatiquement le workflow correspondant
+- Ajustez et personnalisez le résultat dans l'éditeur visuel
+- **Disponible uniquement sur n8n Cloud** (non testé)
+
+<div class="pt-4 text-sm">
+
+[docs.n8n.io/advanced-ai/ai-workflow-builder](https://docs.n8n.io/advanced-ai/ai-workflow-builder/)
+
+</div>
+
+---
+
 # Points à retenir — Cas d'usage 2
 
 - Le **contexte** fourni au LLM est le facteur déterminant de la qualité du résultat
