@@ -58,6 +58,10 @@
   color: white;
 }
 
+.slidev-layout.layout-end p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .slidev-layout.layout-end a {
   color: #6bb3e8;
 }
