@@ -99,6 +99,28 @@ Réunions longues, conférences, podcasts, archivage audio
 </div>
 </div>
 
+<div class="pt-4 text-sm">
+
+Publié dans les [templates officiels n8n](https://n8n.io/workflows/10870-transcribe-long-audio-files-beyond-25mb-limit-with-fileflows-and-openai-whisper/)
+
+</div>
+
+---
+layout: center
+class: text-center
+---
+
+# Démo — Transcription Whisper
+
+## Aperçu du workflow dans l'éditeur n8n
+
+<!--
+NOTES DE DEMO :
+- Basculer sur l'éditeur n8n
+- Montrer le workflow de transcription
+- Expliquer les nœuds et le découpage en segments
+-->
+
 ---
 
 # Analyse d'un dépôt GitHub avec GPT5-mini
@@ -141,19 +163,20 @@ layout: center
 class: text-center
 ---
 
-# Démo 1
+# Démo — Analyse GitHub
 
-## Analyse d'un dépôt GitHub en direct
+## Aperçu du workflow dans l'éditeur n8n
 
 <div class="pt-4 opacity-60">
 
-Workflow : `Digital 113 - Analyser une dépôt github.json`
+Workflow disponible dans le dépôt de la présentation : `Digital 113 - Analyser une dépôt github.json`
 
 </div>
 
 <!--
 NOTES DE DEMO :
-- Ouvrir n8n et charger le workflow
+- Basculer sur l'éditeur n8n
+- Montrer le workflow d'analyse GitHub
 - Saisir une URL GitHub dans le formulaire
 - Montrer le résultat structuré retourné par GPT5-mini
 -->
