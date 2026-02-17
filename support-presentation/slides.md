@@ -132,7 +132,7 @@ NOTES DE DEMO :
 
 ### Contexte
 
-Inspiré d'un projet ayant qualifié **4 094 dépôts open source** automatiquement.
+Inspiré d'un projet ayant qualifié **5 200 dépôts open source** automatiquement.
 
 ### Workflow simplifié
 

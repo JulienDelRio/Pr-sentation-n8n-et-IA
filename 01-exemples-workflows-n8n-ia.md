@@ -27,7 +27,7 @@ Contourne la limite de 25 MB d'OpenAI Whisper en utilisant [FileFlows](https://f
 
 **Workflow :** [`Digital 113 - Analyser une dépot github.json`](workflows/Digital%20113%20-%20Analyser%20une%20dépot%20github.json)
 
-Inspiré d'un projet ayant permis de qualifier **4 094 dépôts open source** automatiquement, ce workflow simplifié analyse un dépôt GitHub donné via un formulaire et en extrait des informations structurées grâce à GPT5-mini.
+Inspiré d'un projet ayant permis de qualifier **5 200 dépôts open source** automatiquement, ce workflow simplifié analyse un dépôt GitHub donné via un formulaire et en extrait des informations structurées grâce à GPT5-mini.
 
 **Étapes du workflow :**
 
