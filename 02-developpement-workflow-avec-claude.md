@@ -54,7 +54,7 @@ Utiliser Claude Code en précisant la version de n8n et des détails techniques 
 > **Nœuds à utiliser (avec types et versions exactes) :**
 > - `n8n-nodes-base.formTrigger` (typeVersion: 2.5) — formulaire avec un champ "URL de l'article" (requis), responseMode: lastNode
 > - `n8n-nodes-base.httpRequest` (typeVersion: 4.4) — GET sur l'URL saisie pour récupérer le HTML
-> - `@n8n/n8n-nodes-langchain.openAi` (typeVersion: 2.1) — analyse du contenu avec le modèle `gpt-4o-mini`, réponse en JSON structuré (response_format: json_object) contenant : summary (string), keywords (array), tone (string)
+> - `@n8n/n8n-nodes-langchain.openAi` (typeVersion: 2.1) — analyse du contenu avec le modèle `gpt-5-mini`, réponse en JSON structuré (response_format: json_object) contenant : summary (string), keywords (array), tone (string)
 > - `n8n-nodes-base.form` (typeVersion: 2.5) — page de complétion affichant le résultat
 >
 > **Connexions :** formTrigger → httpRequest → openAi → form
