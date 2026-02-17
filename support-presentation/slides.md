@@ -196,23 +196,17 @@ Comparer les résultats selon le **niveau de contexte** fourni au LLM.
 </div>
 <div>
 
-### Observations
-
-<!--
-NOTES DE DEMO :
-- Copier le prompt dans claude.ai
-- Observer la structure du JSON généré
-- Tenter l'import dans n8n
-- Noter les erreurs / incompatibilités
--->
-
-<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
-
-À compléter pendant la démo
-
+</div>
 </div>
 
-</div>
+---
+
+# Test 1 — Prompt
+
+<div class="prompt-box">
+
+Crée-moi un workflow n8n qui analyse des articles de blog. L'utilisateur saisit une URL dans un formulaire, le workflow récupère le contenu de l'article, l'envoie à GPT via OpenAI pour en extraire un résumé, les mots-clés et le ton, puis affiche le résultat.
+
 </div>
 
 ---
@@ -237,23 +231,21 @@ NOTES DE DEMO :
 </div>
 <div>
 
-### Observations
-
-<!--
-NOTES DE DEMO :
-- Même prompt dans Claude Desktop
-- Context7 fournit la doc n8n à jour
-- Comparer le JSON avec le test 1
-- Vérifier les noms de nœuds et versions
--->
-
-<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
-
-À compléter pendant la démo
-
+</div>
 </div>
 
-</div>
+---
+
+# Test 2 — Prompt
+
+<div class="prompt-box">
+
+Utilise la documentation n8n via Context7 pour créer un workflow n8n qui analyse des articles de blog.
+
+L'utilisateur saisit une URL dans un formulaire, le workflow récupère le contenu de l'article, l'envoie à GPT via OpenAI pour en extraire un résumé, les mots-clés et le ton, puis affiche le résultat.
+
+Génère le JSON du workflow prêt à importer dans n8n.
+
 </div>
 
 ---
@@ -285,23 +277,29 @@ NOTES DE DEMO :
 - Workflow importable directement
 - JSON valide et conforme au format n8n
 
-### Observations
-
-<!--
-NOTES DE DEMO :
-- Montrer le CLAUDE.md ou les specs fournies
-- Lancer Claude Code avec le contexte technique
-- Importer le JSON généré dans n8n
-- Vérifier que les nœuds, versions et connexions sont corrects
--->
-
-<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
-
-À compléter pendant la démo
-
+</div>
 </div>
 
-</div>
+---
+
+# Test 3 — Prompt
+
+<div class="prompt-box text-xs">
+
+Crée un workflow n8n au format JSON importable. Voici les spécifications :
+
+**Version n8n :** 2.7.4
+
+**Nœuds à utiliser (avec types et versions exactes) :**
+- `n8n-nodes-base.formTrigger` (typeVersion: 2.5) — formulaire avec un champ "URL de l'article" (requis), responseMode: lastNode
+- `n8n-nodes-base.httpRequest` (typeVersion: 4.4) — GET sur l'URL saisie pour récupérer le HTML
+- `@n8n/n8n-nodes-langchain.openAi` (typeVersion: 2.1) — analyse du contenu avec le modèle `gpt-5-mini`, réponse en JSON structuré (response_format: json_object) contenant : summary (string), keywords (array), tone (string)
+- `n8n-nodes-base.form` (typeVersion: 2.5) — page de complétion affichant le résultat
+
+**Connexions :** formTrigger → httpRequest → openAi → form
+
+**Structure JSON attendue :** le workflow exporté doit contenir les propriétés `name`, `nodes`, `connections`, `pinData` et `settings` à la racine. Chaque nœud doit avoir `parameters`, `type`, `typeVersion`, `position`, `id` et `name`.
+
 </div>
 
 ---
@@ -333,24 +331,34 @@ NOTES DE DEMO :
 - Documenté avec des sticky notes
 - Qualité maximale — le meilleur "prompt" est un exemple
 
-### Observations
-
-<!--
-NOTES DE DEMO :
-- Fournir le workflow GitHub comme référence
-- Context7 donne accès à la doc n8n à jour
-- Vérifier les sticky notes générées
-- Comparer la structure avec le workflow source
-- Le résultat devrait être le plus fidèle des 4 tests
--->
-
-<div class="p-4 bg-gray-100 rounded-lg text-sm opacity-60 italic">
-
-À compléter pendant la démo
-
+</div>
 </div>
 
-</div>
+---
+
+# Test 4 — Prompt
+
+<div class="prompt-box text-xs">
+
+Utilise Context7 pour accéder à la documentation n8n à jour.
+
+Voici un workflow n8n existant qui analyse des dépôts GitHub : `Digital 113 - Analyser une dépot github.json`
+
+En t'inspirant de sa structure, de ses conventions et de son format, crée un workflow similaire mais qui analyse des **articles de blog** au lieu de dépôts GitHub.
+
+Différences :
+- Le formulaire demande une URL d'article (pas une URL GitHub)
+- Pas de validation GitHub, pas de nœud github — remplacer par un httpRequest qui récupère le HTML de l'article
+- GPT extrait : résumé (2-3 phrases), mots-clés, ton de l'article (au lieu de catégorie/stack/qualité README)
+- La page de complétion affiche ces nouveaux champs
+
+Conserve le même style : mêmes versions de nœuds, même structure JSON, mêmes patterns (responseMode, merge, etc.).
+
+**Documentation du workflow :**
+- Renomme chaque nœud pour décrire clairement sa fonction
+- Ajoute une **sticky note principale** (couleur jaune, en haut à gauche) de 100 à 300 mots avec les sections `### How it works` et `### Setup steps`
+- Ajoute des **sticky notes de section** (couleur blanche) pour regrouper les étapes logiques du workflow
+
 </div>
 
 ---
